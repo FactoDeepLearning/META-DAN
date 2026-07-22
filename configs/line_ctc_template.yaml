@@ -1,0 +1,76 @@
+dataset_params:
+    dataset_folder: ./Datasets/formatted/
+    train:
+        -   dataset_name: iam_line
+            split: train
+    val:
+        -   name: iam-val
+            sets:
+                -   dataset_name: iam_line
+                    split: val
+    test:
+        -   name: iam-test
+            sets:
+                -   dataset_name: iam_line
+                    split: test
+    config:
+        load_in_memory: True
+        worker_per_gpu: 16
+        width_divisor: 8
+        height_divisor: 32
+        image_padding_value: 0
+        charset_mode: CTC
+        constraints:
+            -   CTC_line
+        data_augmentation: text_line_aug
+        preprocessing:
+            -   to_RGB
+        synthetic_data: line_syn_mix.yaml
+
+model_params:
+    input_channels: 3
+    enc_dim: 256
+    enc_dropout: 0.5
+    transfer_learning: False
+    transfered_charset: True
+
+
+training_params:
+    output_folder: FCN_ctc_iam_line_syn
+    max_nb_epochs: 10000
+    max_training_time: 40
+    load_epoch: last
+    save_weights:
+        mode: epoch
+        interval: 1
+        keep_all: False
+    eval_on_valid:
+        mode: sample
+        start_at: 0
+        interval: 100000
+    use_ddp: False
+    use_amp: True
+    gpus:
+        - 0
+    train_batch_size: 16
+    val_batch_size: 16
+    test_batch_size: 16
+    optimizers:
+        all:
+            class: Adam
+            args:
+                lr: 0.0001
+                amsgrad: False
+        lr_schedulers: False
+    focus_metric: cer
+    expected_metric_value: low
+    set_name_focus_metric: iam-val
+    train_metrics:
+        - loss_ctc
+        - cer
+        - wer
+    eval_metrics:
+        - cer
+        - wer
+        - time
+    force_cpu: False

@@ -1,0 +1,14 @@
+mode: line
+text_source: dataset
+char_per_line:
+    min: 1
+    max: 75
+    mean: 50
+    std: 20
+max_width: 1500
+make_val_syn: True
+scheduler:
+     init_proba: 1
+     end_proba: 1
+     num_samples_proba: 1000000
+

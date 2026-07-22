@@ -1,0 +1,100 @@
+dataset_params:
+    dataset_folder: ./Datasets/formatted/
+    train:
+        -   dataset_name: read2016_page
+            split: train
+    val:
+        -   name: read2016-val
+            sets:
+                -   dataset_name: read2016_page
+                    split: val
+    test:
+        -   name: read2016-test
+            sets:
+                -   dataset_name: read2016_page
+                    split: test
+    config:
+        load_in_memory: True
+        worker_per_gpu: 8
+        width_divisor: 8
+        height_divisor: 32
+        image_padding_value: 0
+        charset_mode: seq2seq
+        constraints:
+            -   meta_dan_encoding
+        data_augmentation: text_doc_aug
+        preprocessing:
+            -   to_RGB
+        synthetic_data: page_syn_mix.yaml
+
+model_params:
+    input_channels: 3
+    enc_dim: 256
+    enc_dropout: 0.5
+    transfer_learning: False
+    h_max: 500
+    w_max: 1000
+    l_max: 15000
+    token_win: 5
+    num_token_heads: 5
+    decoding_mt_mode: static
+    decoding_win_mode: first
+    decoding_num_preds: 5
+    decoding_threshold: 0.9
+    use_query_embedding: False
+    dec_num_layers: 8
+    dec_num_heads: 4
+    dec_dropout: 0.1
+    dec_dim_feedforward: 256
+    attention_win: 100
+    transfered_charset: True
+    additional_tokens: 1
+    dropout_scheduler:
+        function: exponential
+        T: 50000
+
+
+training_params:
+    output_folder: MetaDAN_read2016_page
+    max_nb_epochs: 15000
+    max_training_time: 45
+    load_epoch: last
+    save_weights:
+        mode: epoch
+        interval: 1
+        keep_all: False
+    eval_on_valid:
+        mode: sample
+        start_at: 200000
+        interval: 10000
+    use_ddp: False
+    use_amp: True
+    gpus:
+        - 0
+    train_batch_size: 1
+    val_batch_size: 1
+    test_batch_size: 1
+    optimizers:
+        all:
+            class: Adam
+            args:
+                lr: 0.0001
+                amsgrad: False
+        lr_schedulers: False
+    focus_metric: cer
+    expected_metric_value: low
+    set_name_focus_metric: read2016-val
+    train_metrics:
+        - loss
+        - cer
+        - wer
+    eval_metrics:
+        - cer
+        - wer
+        - time
+    force_cpu: False
+    max_char_prediction: 3000
+    teacher_forcing_scheduler:
+        min_error_rate: 0.2
+        max_error_rate: 0.2
+        total_num_steps: 5.0e+4

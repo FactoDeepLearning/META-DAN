@@ -1,0 +1,8 @@
+datasets:
+    -   dataset_name: iam_line
+    -   dataset_name: bressay_line
+    -   dataset_name: read2016_line
+    -   dataset_name: esposalles_line
+    -   dataset_name: eparchos_line
+    -   dataset_name: scribblelens_line
+    -   dataset_name: casia2_line

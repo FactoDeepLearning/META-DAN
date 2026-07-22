@@ -1,0 +1,24 @@
+datasets:
+    -   dataset_name: iam_paragraph
+        syn_config: iam_paragraph.yaml
+
+    -   dataset_name: bressay_page
+        syn_config: bressay_page.yaml
+
+    -   dataset_name: read2016_page
+        syn_config: read2016_page.yaml
+
+    -   dataset_name: esposalles_page
+        syn_config: esposalles_page.yaml
+
+    -   dataset_name: scribblelens_page
+        syn_config: scribblelens_page.yaml
+
+    -   dataset_name: rimes2024_page
+        syn_config: rimes2024_page.yaml
+        
+    -   dataset_name: maurdor_c3_page
+        syn_config: maurdor_c3_page.yaml
+
+    -   dataset_name: maurdor_c4_page
+        syn_config: maurdor_c4_page.yaml

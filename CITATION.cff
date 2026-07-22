@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: 'Meta-DAN: Meta Document Attention Network'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: 'Denis '
+    family-names: Coquenet
+    orcid: 'https://orcid.org/0000-0001-5203-9423'
+  - affiliation: Univ Rennes, CNRS, IRISA - UMR 6074, F-35000 Rennes, France
+identifiers:
+  - type: url
+    value: 'https://arxiv.org/abs/2504.03349'
+repository-code: 'https://github.com/FactoDeepLearning/meta-dan'

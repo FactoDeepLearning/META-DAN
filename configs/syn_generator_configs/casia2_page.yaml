@@ -1,0 +1,6 @@
+- name : "generic"
+  proba : 1.0
+  text_source: dataset
+  max_num_lines: 30
+  ratio_num_columns: [1.0, ]
+  word_sep: ""

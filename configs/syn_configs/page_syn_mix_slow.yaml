@@ -1,0 +1,21 @@
+mode: page
+custom_config: generic_page
+char_per_line:
+    min: 1
+    max: 75
+    mean: 50
+    std: 20
+max_width: 1500
+start_scheduler_after_curriculum: True
+start_curr_at_sample: 100000
+max_num_lines: 30
+scheduler_char:
+    num_samples: 100000
+scheduler:
+    init_proba: 0.9
+    end_proba: 0.1
+    num_samples_proba: 200000
+curriculum:
+    min_num_lines: 1
+    num_samples_curr: 400000
+

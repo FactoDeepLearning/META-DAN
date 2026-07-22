@@ -1,0 +1,6 @@
+- name : "read2016"
+  label_path : Datasets/formatted/read2016_page_sem/labels.json
+  add_sem_tokens : False
+  proba : 1.0
+  max_num_lines: 30
+  text_source : dataset

@@ -1,0 +1,7 @@
+- name : "rimes"
+  label_path : Datasets/formatted/rimes2024_page_sem/labels.json
+  add_sem_tokens : False
+  enable_overlap : True
+  proba : 1.0
+  max_num_lines: 50
+  text_source : dataset

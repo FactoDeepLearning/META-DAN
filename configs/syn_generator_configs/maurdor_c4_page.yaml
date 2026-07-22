@@ -1,0 +1,5 @@
+- name : "maurdor"
+  label_path : Datasets/formatted/maurdor_c4_page/labels.json
+  proba : 1.0
+  max_num_lines: 40
+  text_source : dataset
