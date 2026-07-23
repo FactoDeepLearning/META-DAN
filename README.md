@@ -234,7 +234,9 @@ To cite the repository, please refer to the CITATION.cff file.
 
 
 # License
-This project is under a research/academic usage only license, preventing any usage for commercial purposes without permission. 
+**This project is under a research/academic usage only license, preventing any usage for commercial purposes without permission.**  
+It is built upon the DAN source code from the following publication:  
+Coquenet, Denis and Chatelain, Clément and Paquet, Thierry. “DAN: a Segmentation-free Document Attention Network for Handwritten Document Recognition” 10.1109/TPAMI.2023.3235826, IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2023.
 
 If you are interested in using this work for commercial purposes, you must buy a license.
 
